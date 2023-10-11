@@ -1,59 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Lipa Na M-Pesa Example</title>
-    <link rel="stylesheet" href="Styles.css">
-    <script src="Script.js"></script>
-</head> 
-<body>
-    <h1>Welcome to T-Crafts Store</h1>
+<!-- HTML for the button -->
+<button id="lipa-button">Lipa Na M-Pesa</button>
 
-    <!-- Lipa Na M-Pesa Section -->
-    <div>
-        <h2>Lipa Na M-Pesa</h2>
-        <p>Enter your phone number and amount to pay:</p>
-        <input type="text" id="phoneNumber" placeholder="Phone Number">
-        <input type="number" id="amount" placeholder="Amount">
-        <button id="payButton">Make Payment</button>
-    </div>
-
-    <script>
-        document.getElementById("payButton").addEventListener("click", function () {
-            const phoneNumber = document.getElementById("phoneNumber").value;
-            const amount = document.getElementById("amount").value;
-
-            // Perform validation on the phone number and amount.
-
-            // Construct the URL for the M-Pesa payment.
-            const mpesaPaymentURL = `https://sandbox.safaricom.co.ke/mpesa/c2b/v1/simulate`;
-            const requestBody = {
-                ShortCode: "your_short_code",
-                CommandID: "CustomerPayBillOnline",
-                Amount: amount,
-                Msisdn: phoneNumber,
-                BillRefNumber: "your_bill_ref_number"
-            };
-
-            // Send a POST request to initiate the payment.
-            fetch(mpesaPaymentURL, {
-                method: "POST",
-                headers: {
-                    "Authorization": "Bearer your_access_token",
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(requestBody),
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Handle the response from M-Pesa here.
-                console.log(data);
-                alert("Payment initiated. Check your phone for instructions.");
-            })
-            .catch(error => {
-                console.error("Error:", error);
-                alert("Payment failed. Please try again later.");
-            });
-        });
-    </script>
-</body>
-</html>
+<!-- HTML for the popup -->
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <span class="close" id="close-popup">&times;</span>
+    <h2>Enter Phone Number and Amount</h2>
+    <input type="text" placeholder="Phone Number" id="phone-number">
+    <input type="text" placeholder="Amount" id="amount">
+    <button id="make-payment">Make Payment</button>
+  </div>
+</div>
