@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Bright Website</title>
+    <title>T-Crafts</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Welcome to T-Crafts</h1>
         <nav>
             <ul>
                 <li><a href="#">Home</a></li>
@@ -17,23 +16,39 @@
             </ul>
         </nav>
     </header>
+
     <main>
-        <section>
+        <section id="welcome">
+            <h1>Welcome to T-Crafts</h1>
+            <p>Your one-stop shop for unique crafts and handmade items.</p>
+        </section>
+
+        <section id="payment">
             <h2>Lipa Na M-Pesa</h2>
             <button id="lipa-button">Make Payment</button>
-        </section>
-        <section id="popup" class="popup">
-            <div class="popup-content">
-                <span class="close" id="close-popup">&times;</span>
-                <h2>Enter Phone Number and Amount</h2>
-                <input type="text" placeholder="Phone Number" id="phone-number">
-                <input type="text" placeholder="Amount" id="amount">
-                <button id="make-payment">Make Payment</button>
+
+            <!-- Popup for Lipa Na M-Pesa -->
+            <div id="popup" class="popup">
+                <div class="popup-content">
+                    <span class="close" id="close-popup">&times;</span>
+                    <h3>Enter Phone Number and Amount</h3>
+                    <input type="text" placeholder="Phone Number" id="phone-number">
+                    <input type="text" placeholder="Amount" id="amount">
+                    <button id="make-payment">Make Payment</button>
+                </div>
             </div>
         </section>
+
+        <section id="about">
+            <h2>About Us</h2>
+            <p>We are a passionate team of craft enthusiasts who create unique and beautiful handmade items.</p>
+        </section>
     </main>
+
     <footer>
         <p>&copy; 2023 T-Crafts</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
